@@ -1,0 +1,143 @@
+.container {
+  width: 980px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.fs-12 {
+  font-size: 12px;
+}
+a {
+  cursor: pointer;
+  color: #666666;
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6600;
+  text-decoration: none;
+}
+.justify  {
+  text-align: justify;
+}
+.justify::after {
+  content: '';
+  width: 100%;
+  display: inline-block;
+}
+
+.logo-width {
+  width: 190px;
+}
+
+.top-nav > ul {
+  margin: 0;
+}
+
+.logo img{
+  border-style: none;
+}
+.top-nav > ul li {
+  list-style: none;
+  float: left;
+  line-height: 30px;
+}
+.top-nav {
+  overflow: auto;
+}
+.top-nav .user-item {
+  margin: 0 6px;
+}
+
+.user-nav .cart {
+  line-height: 28px;
+  padding-left: 28px;
+  display: inline-block;
+  background: url(../images/common.gif) -210px -180px no-repeat;
+}
+
+.user-nav .phone {
+  line-height: 28px;
+  padding-left: 28px;
+  display: inline-block;
+  background-color: #999999;
+  background: url(../images/common.gif) -210px -210px no-repeat;
+}
+.user-nav .phone strong {
+  font-size: 14px;
+}
+.menu-nav {
+  background-color: #1d1d1d;
+  overflow: auto;
+  font-size: 12px;
+}
+.menu-nav > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-nav .menu-item {
+  list-style: none;
+  float: left;
+  line-height: 36px;
+}
+.menu-nav .menu-item a {
+  color: #e7e7e7;
+}
+.menu-nav .menu-item:hover {
+  background: #b6b5b5;
+  opacity: 0.5;
+}
+.menu-nav .menu-item a {
+  font-size: 14px;
+  border-right: 1px solid #b6b5b5;
+  padding: 0 20px;
+}
+
+.footer {
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+} 
+.footer img {
+  display: inline-block;
+  text-align: center;
+}
+.footer-tip {
+  overflow: hidden;
+}
+.footer-tip ul {
+  margin: 0;
+  display: inline-block;
+}
+
+.footer-tip ul li {
+  list-style: none;
+  float: left;
+  line-height: 22px;
+}
+
+.footer-tip a {
+  margin: 0 10px;
+}
+
+input.text {
+  width: 220px;
+  line-height: 20px;
+  padding: 3px 5px;
+  /* border: 1px solid #d0d6d9; */
+}
+input.text:focus + .remark-warn {
+  visibility: visible;
+}
+.require-warn::before {
+  content: '*';
+  color: #f30;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}

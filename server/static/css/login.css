@@ -1,0 +1,80 @@
+.wrap {
+  border: 2px solid #f2f2f2;
+}
+.content {
+  overflow: auto;
+  padding: 0 20px 20px;
+  border: 1px solid #d7d7d7;
+}
+
+.content .title {
+  color: #3164af;
+  margin: 0;
+  line-height: 40px;
+  border-bottom: 1px dotted #ededed;
+  margin-left: 30px;
+}
+.content .register-relation {
+  float: left;
+  background-color: #fff8db;
+  padding: 0 20px;
+}
+.content .register-relation dt {
+  line-height: 40px;
+  color: #bd5613;
+}
+.content .register-relation dd {
+  font-size: 14px;
+  line-height: 28px;
+  margin: 0;
+}
+.content .forms {
+  overflow: auto;
+  font-size: 14px;
+  width: 400px;
+  margin-left: auto;
+  border: 1px solid #d7d7d7;
+}
+.content .forms-gorup {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  min-width: 330px;
+}
+.content .forms-gorup.footer {
+  display: block;
+  background-color: #f3f3f3;
+  margin-bottom: 0;
+}
+.content .forms-gorup.footer .forter-title{
+  color: #cc062d;
+  font-size: 16px;
+}
+.content .forms-gorup.footer .forter-title + p {
+  font-size: 12px;
+}
+.content .forms .form-label {
+  width: 80px;
+  float: left;
+  padding-top: 3px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.content .forms .form-cell {
+  display: table-cell;
+  *display: inline-block;
+}
+.content .forms .remark-warn {
+  padding-left: 5px;
+  color: #be0000;
+  visibility: hidden;
+}
+.content .forms .register-btn {
+  display: block;
+  width: 160px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #be0000;
+  color: #fff;
+} 

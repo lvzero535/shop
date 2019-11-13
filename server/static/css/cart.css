@@ -1,0 +1,60 @@
+.cart-list .table {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 12px;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+.cart-list .table th {
+  font-weight: normal;
+  text-align: left;
+  line-height: 32px;
+  padding: 4px;
+  border: solid 1px #e6e4e3;
+  background-color: #fafafa;
+}
+.cart-list .table td {
+  padding: 4px;
+  line-height: 28px;
+  border: solid 1px #e6e4e3;
+}
+
+.cart-list .table img {
+  width: 60px;
+  height: 60px;
+}
+
+.cart-list .total {
+  text-align: right;
+  font-size: 12px;
+  line-height: 28px;
+  margin: 20px 0;
+}
+#bouns {
+  color: #f60;
+  margin-right: 20px;
+}
+#gavePoint {
+  color: #f60;
+  margin-right: 20px;
+}
+#totalPrice {
+  color: #ef0101;
+  font-weight: bold;
+}
+
+.cart-list .button {
+  text-align: right;
+  font-size: 12px;
+  line-height: 30px;
+  border: 1px dotted #e4e4e4;
+  background-color: #fdfdfd;
+}
+
+#submit {
+  width: 60px;
+  color: #ffffff;
+  background-color: #b31d04;
+  text-align: center;
+  padding: 10px;
+}

@@ -1,0 +1,66 @@
+.wrap {
+  border: 2px solid #f2f2f2;
+}
+.content {
+  overflow: auto;
+  padding: 0 20px 20px;
+  border: 1px solid #d7d7d7;
+}
+
+.content .title {
+  color: #3164af;
+  margin: 0;
+  line-height: 40px;
+  border-bottom: 1px dotted #ededed;
+}
+
+.content .forms {
+  float: left;
+  font-size: 14px;
+  max-width: 620PX;
+}
+.content .forms-gorup {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  min-width: 560px;
+}
+.content .forms .form-label {
+  width: 80px;
+  float: left;
+  padding-top: 3px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.content .forms .form-cell {
+  display: table-cell;
+  *display: inline-block;
+}
+.content .forms .remark-warn {
+  padding-left: 5px;
+  color: #be0000;
+  visibility: hidden;
+}
+.content .forms .register-btn {
+  display: block;
+  width: 160px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #be0000;
+  color: #fff;
+} 
+.content .register-relation {
+  overflow: auto;
+  background-color: #fff8db;
+  padding: 0 20px;
+}
+.content .register-relation dt {
+  line-height: 40px;
+  color: #bd5613;
+}
+.content .register-relation dd {
+  font-size: 14px;
+  line-height: 28px;
+  margin: 0;
+}
