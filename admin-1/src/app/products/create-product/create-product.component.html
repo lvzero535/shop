@@ -1,0 +1,83 @@
+<div class="create-prod">
+  <h2 class="title">创建产品</h2>
+  <form nz-form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="4">二级名称</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select [nzDisabled]="isEdit" (nzScrollToBottom)="loadMoreTwo()" formControlName="secondCategoryId">
+          <nz-option *ngFor="let two of selectSecondCategories" [nzValue]="two.id" [nzLabel]="two.name"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="4">名称</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="nameErrorTipRef">
+        <input nz-input placeholder="Basic usage" formControlName="name" />
+        <ng-template #nameErrorTipRef let-control>
+          <ng-container *ngIf="control.hasError('required')">
+              产品名称不能为空!
+          </ng-container>
+          <ng-container *ngIf="control.hasError('duplicated')">
+              产品名称已存在!
+          </ng-container>
+          <ng-container *ngIf="control.hasError('pattern')">
+            4到20个字段，字母数据中下划线，不能有特殊字符!
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="4">价格</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback  [nzErrorTip]="prmTipRef">
+        <nz-input-number class="input-width" formControlName="price" [nzMin]="0" [nzMax]="10000" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="4">促销价</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzHasFeedback  [nzErrorTip]="prmTipRef">
+        <nz-input-number class="input-width" formControlName="promotionPrice" [nzMin]="0" [nzMax]="10000" [nzStep]="1"></nz-input-number>
+        <ng-template #prmTipRef let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            价格不能为空!
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="4">描述</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <textarea rows="4" formControlName="remark" nz-input></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="4">是否热门</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+          <nz-radio-group class="hot-cls" [nzButtonStyle]="'solid'" formControlName="isHot">
+            <label nz-radio-button [nzValue]="true">是</label>
+            <label nz-radio-button [nzValue]="false">否</label>
+          </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="4">图片</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <input type="file" (change)="fileChange($event)" nz-button nzType="default">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzNoColon [nzSpan]="4">原图片</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+          <img *ngIf="isEdit" width="100" [src]="imgUrl" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzNoColon [nzSpan]="4"></nz-form-label>
+      <nz-form-control [nzSpan]="12">
+          <button nz-button nzType="primary" class="mr-20" [disabled]="!formGroup.valid">确定</button>
+          <!-- <button nz-button nzType="primary" class="mr-20">确定</button> -->
+          <button routerLink="/home/product" nz-button nzType="default">返回</button>
+      </nz-form-control>
+    </nz-form-item>
+
+  </form>
+</div>

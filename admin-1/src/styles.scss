@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+@for $i from 1 to 10 {
+  $val: $i*5;
+  .mt-#{$val} { margin-top: #{$val}px;}
+  .mr-#{$val} { margin-right: #{$val}px;}
+  .mb-#{$val} { margin-bottom: #{$val}px;}
+  .ml-#{$val} { margin-left: #{$val}px;}
+
+  .pt-#{$val} { padding-top: #{$val}px;}
+  .pr-#{$val} { padding-right: #{$val}px;}
+  .pb-#{$val} { padding-bottom: #{$val}px;}
+  .pl-#{$val} { padding-left: #{$val}px;}
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}

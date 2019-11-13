@@ -1,0 +1,57 @@
+<div class="create-prod">
+  <form nz-form>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">二级名称</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-select (nzScrollToBottom)="loadMoreTwo()">
+          <nz-option [nzValue]="'a'" [nzLabel]="'a'"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">名称</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <input nz-input placeholder="Basic usage" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">价格</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-input-number [nzMin]="0" [nzMax]="1000" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">促销价</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-input-number [nzMin]="0" [nzMax]="1000" [nzStep]="1"></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">是否热门</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-switch nzCheckedChildren="是" nzUnCheckedChildren="否"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">描述</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <textarea rows="4" nz-input></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="5">图片</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-upload
+          nzAction="https://jsonplaceholder.typicode.com/posts/"
+          nzListType="picture-card"
+          [(nzFileList)]="fileList"
+          [nzShowButton]="'true'"
+          [nzShowUploadList]="showUploadList"
+          [nzPreview]="handlePreview">
+          <i nz-icon nzType="plus"></i>
+          <div class="ant-upload-text">Upload</div>
+        </nz-upload>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

@@ -1,0 +1,64 @@
+<div class="two-main">
+  <div class="top-bar mb-10">
+    <div class="pull-right">
+        <nz-select class="input-width mr-10"
+         [nzPlaceHolder]="oneSelectPlaceHolder"
+         [ngModel]="selectedOneId"
+         (ngModelChange)="oneSelected($event)"
+         (nzScrollToBottom)="loadMoreOne()">
+          <nz-option *ngFor="let one of oneCategories" [nzValue]="one.id" [nzLabel]="one.name"></nz-option>
+        </nz-select>
+        <div class="input-width mr-10">
+          <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+            <input type="text" #searchRef nz-input placeholder="input search text" />
+          </nz-input-group>
+          <ng-template #suffixIconButton>
+              <button (click)="search(searchRef.value)" nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+          </ng-template>
+        </div>
+        <button class="refresh-btn" nz-button (click)="refresh()">
+          <i nz-icon nzType="redo" nzTheme="outline"></i>
+        </button>  
+    </div>
+  </div>
+  <nz-table #basicTable nzBordered 
+  nzFrontPagination="false"
+  [nzPageIndex]="currentPage"
+  [nzPageSize]="pageSize"
+  [nzTotal]="totalNumber"
+  [nzLoading]="loading"
+  [nzShowTotal]="totalTemplate"
+  (nzPageIndexChange)="pageChange($event)"
+  [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th nzWidth="30%">ID</th>
+      <th nzWidth="13%">名称</th>
+      <th nzWidth="13%">一级名称</th>
+      <th nzWidth="9%">是否发布</th>
+      <th nzWidth="20%">创建时间</th>
+      <th nzWidth="15%">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data; trackBy: trackByFn">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.category.name }}</td>
+      <td>{{ data.isPulished ? '是' : '否' }}</td>
+      <td>{{ data.createdDate }}</td>
+      <td>
+        <a (click)="editBtnFn(data)">编辑</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="deleteBtnFn(data, deleteTipTpl)">删除</a>
+        <ng-template #deleteTipTpl>
+          <p style="font-weight: bold; font-size: 18px; margin-bottom: 5px;">确认要删除<span style="color: red">{{data.name}}</span>二级分类么</p>
+          <p style="margin: 0;">删除后无法恢复，请谨慎操作！</p>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+  </nz-table>
+</div>
+<ng-template #totalTemplate let-total> 共 {{ total }} 条 </ng-template>
+
