@@ -5,7 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { LoginService } from './login.service';
+// import { LoginService } from './login.service';
 
 
 @NgModule({
@@ -16,6 +16,6 @@ import { LoginService } from './login.service';
     ReactiveFormsModule,
     NgZorroAntdModule
   ],
-  providers: [ LoginService ]
+  // providers: [ LoginService ]
 })
 export class LoginModule { }

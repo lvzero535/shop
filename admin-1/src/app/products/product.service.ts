@@ -16,7 +16,7 @@ export class ProductService {
     if (name) {
       querys.name = name;
     }
-    return this.httpService.get<SecondCategoryResp>(this.url, querys);
+    return this.httpService.get<SecondCategoryResp>(uri, querys);
   }
 
   getProducts(params, name?: string, secondCategoryId?: string) {

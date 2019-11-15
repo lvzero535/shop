@@ -64,4 +64,12 @@ export default class ManagerController {
       ctx.body = findManager;
     }
   }
+  public static async logout(ctx: BaseContext) {
+    console.log('daaaaaa')
+    ctx.session = null;
+    ctx.status = 200;
+    ctx.body = {
+      msg: 'logout success'
+    }
+  }
 }

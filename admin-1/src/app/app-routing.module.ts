@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SimpleGuardService } from './shared/services/simple-guard.service';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  {
+    path: '',
+    canActivate: [SimpleGuardService],
+    canActivateChild: [SimpleGuardService],
+    children: [
+      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+    ],
+  },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }
 ];
 

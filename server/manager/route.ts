@@ -8,5 +8,6 @@ router.post('/managers', controller.addManager);
 router.put('/managers/:id', controller.updateManager);
 router.delete('/managers/:id', controller.deleteManager);
 router.post('/login', controller.login);
+router.post('/logout', controller.logout);
 
 export default router;

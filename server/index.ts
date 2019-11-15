@@ -60,7 +60,6 @@ createConnection({
     }
     const key = ctx.cookies.get('SESSIOND_ID');
     console.log(key);
-    console.log(ctx.session);
     if (!key) {
       ctx.status = 401;
       ctx.body = 'unauth';

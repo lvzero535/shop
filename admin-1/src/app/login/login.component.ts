@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { AuthService } from '../shared/services/auth.service';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 interface LoginFormData {
   username: string;
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   validateForm: FormGroup;
   constructor(private fb: FormBuilder, private router: Router,
               private authService: AuthService,
+              private notification: NzNotificationService,
               private loginService: LoginService) {}
 
   submitForm(val: LoginFormData): void {
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(val).subscribe((resp) => {
       console.log(resp);
       this.authService.setToken(JSON.stringify(resp));
+      this.notification.success('登录提示', '登录成功，欢迎回来！');
       this.router.navigate(['/home']);
     });
   }

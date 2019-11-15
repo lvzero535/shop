@@ -25,7 +25,7 @@ export class CreateProductComponent implements OnInit, OnDestroy {
     pageNum: 1, pageSize: 10
   };
   public file: File;
-  private isEdit = false;
+  public isEdit = false;
   public imgUrl: string;
   public product: Prodcut;
   constructor(private fb: FormBuilder,

@@ -20,13 +20,13 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="product">产品</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzDisabled nzMatchRouter>
             <a>订单</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzDisabled nzMatchRouter>
             <a>用户</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzDisabled nzMatchRouter>
             <a>地址</a>
           </li>
         </ul>
@@ -37,7 +37,8 @@
             <a routerLink="manager">管理员</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/login">退出系统</a>
+            <!-- <a (click)="logout()" routerLink="/login">退出系统</a> -->
+            <a (click)="logout()">退出系统</a>
           </li>
         </ul>
       </li>
