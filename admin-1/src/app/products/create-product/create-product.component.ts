@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { SecondCategory } from 'src/app/interfaces/second_category';
 import { ProductService } from '../product.service';
 import { IPaginationQueryParams } from 'src/app/interfaces/common.interface';
-import { Observable, Observer, Subscription } from 'rxjs';
+import { Observable, Observer, Subscription, from } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Router, NavigationStart, NavigationEnd, ActivationStart, ActivatedRoute, ParamMap } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { EmitService } from 'src/app/shared/services/emit.service';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { Prodcut } from 'src/app/interfaces/product';
-import { AppConfig } from 'src/app/AppConfig';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-create-product',
@@ -31,7 +31,6 @@ export class CreateProductComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder,
               private router: Router,
               private msgService: NzMessageService,
-              private appConfig: AppConfig,
               private productService: ProductService,
               private route: ActivatedRoute,
               ) {
@@ -76,7 +75,7 @@ export class CreateProductComponent implements OnInit, OnDestroy {
       remark: product.remark,
       isHot: product.isHot
     });
-    this.imgUrl = `${this.appConfig.IP_PORT}/${product.imageUrl}`;
+    this.imgUrl = `${environment.IP_PORT}/${product.imageUrl}`;
     this.isEdit = true;
     this.product = product;
     console.log(this.formGroup);

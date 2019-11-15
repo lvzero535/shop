@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { HttpInterceptorProviders } from './shared/interceptors';
-import { AppConfig } from './AppConfig';
 import { MessageService } from './shared/services/message.service';
 
 registerLocaleData(zh);
@@ -33,7 +32,7 @@ registerLocaleData(zh);
   providers: [
     HttpInterceptorProviders,
     { provide: NZ_I18N, useValue: zh_CN },
-    AppConfig, MessageService
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

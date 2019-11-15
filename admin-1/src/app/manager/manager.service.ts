@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../shared/http/http.service';
-import { AppConfig } from '../AppConfig';
 import { ManagerResp, Manager } from '../interfaces/manager';
 import { IPaginationQueryParams } from '../interfaces/common.interface';
 
 @Injectable()
 export class ManagerService {
 
-  private url;
-  constructor(private httpService: HttpService,
-              private appConfig: AppConfig) {
-                this.url = `${this.appConfig.URL}/managers`;
-               }
+  private url = '/managers';
+  constructor(private httpService: HttpService) {}
   getManagers(params: IPaginationQueryParams, username: string) {
     const querys: any = Object.assign({}, params);
     if (username) {

@@ -53,8 +53,11 @@ export default class ManagerController {
     const {username, password} = ctx.request.body;
     const findManager = await ManagerService.login(username, password);
     if(!findManager) {
-      ctx.status = 401;
-      ctx.body = 'username or password is not correct!'
+      ctx.status = 400;
+      ctx.body = {
+        error_code: '401',
+        error_msg: 'username or password is not correct!'
+      }
     } else {
       ctx.status = 200; 
       ctx.session = findManager;

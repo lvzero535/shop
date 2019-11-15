@@ -5,9 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+  private key;
   constructor() { }
 
   getAuthToken() {
-    return 'token';
+    return localStorage.getItem(this.key);
+  }
+  setToken(data: string, key?: string) {
+    this.key = key || 'token';
+    localStorage.setItem(this.key, data);
   }
 }

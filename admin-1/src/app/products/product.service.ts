@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AppConfig } from '../AppConfig';
 import { HttpService } from '../shared/http/http.service';
 import { SecondCategoryResp } from '../interfaces/second_category';
 import { ProdcutResp, Prodcut } from '../interfaces/product';
 
 @Injectable()
 export class ProductService {
-  private url: string;
-  constructor(private appConfig: AppConfig, private httpService: HttpService) {
-    this.url = `${this.appConfig.URL}/products`;
-  }
+  private url = '/products';
+  constructor(private httpService: HttpService) {}
   getTwoCategory(params, name?: string, categoryId?: string) {
     const uri = '/secondcategories';
     const querys = Object.assign({}, params);
@@ -19,8 +16,7 @@ export class ProductService {
     if (name) {
       querys.name = name;
     }
-    const url = `${this.appConfig.URL}${uri}`;
-    return this.httpService.get<SecondCategoryResp>(url, querys);
+    return this.httpService.get<SecondCategoryResp>(this.url, querys);
   }
 
   getProducts(params, name?: string, secondCategoryId?: string) {

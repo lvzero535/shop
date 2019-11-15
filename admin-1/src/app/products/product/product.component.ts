@@ -3,12 +3,11 @@ import { IPaginationQueryParams } from 'src/app/interfaces/common.interface';
 import { ProductService } from '../product.service';
 import { SecondCategory } from 'src/app/interfaces/second_category';
 import { Prodcut } from 'src/app/interfaces/product';
-import { AppConfig } from 'src/app/AppConfig';
 import { NzModalService, NzMessageService } from 'ng-zorro-antd';
 import { Router } from '@angular/router';
 import { EmitService } from 'src/app/shared/services/emit.service';
 import { MessageService } from 'src/app/shared/services/message.service';
-
+import { environment } from '@env/environment';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -37,10 +36,9 @@ export class ProductComponent implements OnInit {
               private nzModalService: NzModalService,
               private msgService: NzMessageService,
               private router: Router,
-              private appConfig: AppConfig,
               private messagegService: MessageService,
               private emitService: EmitService) {
-                this.backendAddr = this.appConfig.IP_PORT;
+                this.backendAddr = environment.IP_PORT;
                }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
+import { AuthService } from '../shared/services/auth.service';
 
 interface LoginFormData {
   username: string;
@@ -16,17 +17,17 @@ interface LoginFormData {
 export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
-
-
   constructor(private fb: FormBuilder, private router: Router,
+              private authService: AuthService,
               private loginService: LoginService) {}
 
   submitForm(val: LoginFormData): void {
     console.log(val);
     this.loginService.login(val).subscribe((resp) => {
       console.log(resp);
+      this.authService.setToken(JSON.stringify(resp));
+      this.router.navigate(['/home']);
     });
-    this.router.navigate(['/home']);
   }
   ngOnInit(): void {
     this.validateForm = this.fb.group({
