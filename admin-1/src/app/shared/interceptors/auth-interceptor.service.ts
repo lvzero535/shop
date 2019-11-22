@@ -71,7 +71,7 @@ export class AuthInterceptorService implements HttpInterceptor {
   }
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let url = req.url;
-    if (!url.startsWith('https://') && !url.startsWith('http://')) {
+    if (!url.startsWith('https://') && !url.startsWith('http://') && !url.includes('i18n')) {
       url = environment.URL + url;
     }
     const newReq = req.clone({

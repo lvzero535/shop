@@ -8,7 +8,7 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>商城管理系统</h1>
+        <h1>{{ 'APP_NAME' | translate }} {{ 'i18n' | translate }}</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
@@ -52,6 +52,9 @@
                nz-icon
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
+        </span>
+        <span (click)="traggerI18n()">
+            <i nz-icon nzType="edit" nzTheme="outline"></i>
         </span>
       </div>
     </nz-header>
