@@ -27,7 +27,7 @@ const CODEMESSAGE = {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthInterceptorService implements HttpInterceptor {
+export class DefaultInterceptorService implements HttpInterceptor {
 
   constructor(private router: Router, private notification: NzNotificationService) { }
 

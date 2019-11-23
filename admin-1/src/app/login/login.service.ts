@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '../shared/http/http.service';
+import { HttpService } from '@core/net/http/http.service';
 import { Manager } from '../interfaces/manager';
 
 @Injectable({

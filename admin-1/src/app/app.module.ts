@@ -10,10 +10,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { HttpInterceptorProviders } from './shared/interceptors';
 import { MessageService } from './shared/services/message.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { CoreModule } from '@core/core.module';
 
 registerLocaleData(zh);
 export function I18nHttpLoaderFactory(http: HttpClient) {
@@ -25,6 +25,7 @@ export function I18nHttpLoaderFactory(http: HttpClient) {
     AppComponent
   ],
   imports: [
+    CoreModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -41,7 +42,6 @@ export function I18nHttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
   ],
   providers: [
-    HttpInterceptorProviders,
     { provide: NZ_I18N, useValue: zh_CN },
     MessageService
   ],

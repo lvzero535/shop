@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
-import { AuthService } from './auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { NzNotificationService } from 'ng-zorro-antd';
 
 @Injectable({
@@ -30,6 +30,5 @@ export class SimpleGuardService implements CanActivate, CanActivateChild {
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.canActivate(next, state);
   }
-
 
 }

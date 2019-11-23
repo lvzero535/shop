@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SimpleGuardService } from './shared/services/simple-guard.service';
+import { SimpleGuardService } from '@core/guard/simple-guard.service';
 
 const routes: Routes = [
   {
