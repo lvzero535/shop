@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../utils/auth.service';
 import { NzNotificationService } from 'ng-zorro-antd';
 
 @Injectable({

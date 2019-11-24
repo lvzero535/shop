@@ -10,7 +10,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { MessageService } from './shared/services/message.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { CoreModule } from '@core/core.module';
@@ -43,7 +42,6 @@ export function I18nHttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
-    MessageService
   ],
   bootstrap: [AppComponent]
 })

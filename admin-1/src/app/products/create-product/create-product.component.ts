@@ -3,12 +3,9 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { SecondCategory } from 'src/app/interfaces/second_category';
 import { ProductService } from '../product.service';
 import { IPaginationQueryParams } from 'src/app/interfaces/common.interface';
-import { Observable, Observer, Subscription, from } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Router, NavigationStart, NavigationEnd, ActivationStart, ActivatedRoute, ParamMap } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { EmitService } from 'src/app/shared/services/emit.service';
-import { MessageService } from 'src/app/shared/services/message.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Prodcut } from 'src/app/interfaces/product';
 import { environment } from '@env/environment';
 

@@ -3,8 +3,14 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  // templateUrl: './app.component.html',
+  template: `
+    <div class="router-container">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  // styleUrls: ['./app.component.scss']
+  styles: ['.router-container { height: 100%; }']
 })
 export class AppComponent {
   isCollapsed = false;

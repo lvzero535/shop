@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CategoryService } from '../category.service';
-import { EmitService } from 'src/app/shared/services/emit.service';
+import { EmitService } from '@core';
 import { NzModalService, NzMessageService } from 'ng-zorro-antd';
 import { OneModalComponent } from '../modal/one-modal/one-modal.component';
 import { Category } from 'src/app/interfaces/category';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '@core';
 import { NzNotificationService } from 'ng-zorro-antd';
 
 interface LoginFormData {

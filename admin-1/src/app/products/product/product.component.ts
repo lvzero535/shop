@@ -5,8 +5,6 @@ import { SecondCategory } from 'src/app/interfaces/second_category';
 import { Prodcut } from 'src/app/interfaces/product';
 import { NzModalService, NzMessageService } from 'ng-zorro-antd';
 import { Router } from '@angular/router';
-import { EmitService } from 'src/app/shared/services/emit.service';
-import { MessageService } from 'src/app/shared/services/message.service';
 import { environment } from '@env/environment';
 @Component({
   selector: 'app-product',
@@ -35,9 +33,7 @@ export class ProductComponent implements OnInit {
   constructor(private productService: ProductService,
               private nzModalService: NzModalService,
               private msgService: NzMessageService,
-              private router: Router,
-              private messagegService: MessageService,
-              private emitService: EmitService) {
+              private router: Router) {
                 this.backendAddr = environment.IP_PORT;
                }
 

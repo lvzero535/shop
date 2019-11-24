@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '@core/net/http/http.service';
+import { HttpService } from '@core';
 import { SecondCategoryResp } from '../interfaces/second_category';
 import { ProdcutResp, Prodcut } from '../interfaces/product';
 

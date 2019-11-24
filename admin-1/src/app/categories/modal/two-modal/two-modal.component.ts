@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzModalRef, NzMessageService } from 'ng-zorro-antd';
 import { SecondCategoryService } from '../../second_category.service';
-import { EmitService } from 'src/app/shared/services/emit.service';
+import { EmitService } from '@core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { CategoryService } from '../../category.service';
 import { of, Observable, Observer } from 'rxjs';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '@core/net/http/http.service';
+import { HttpService } from '@core';
 import { ManagerResp, Manager } from '../interfaces/manager';
 import { IPaginationQueryParams } from '../interfaces/common.interface';
 

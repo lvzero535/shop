@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SimpleGuardService } from '@core/guard/simple-guard.service';
+import { SimpleGuardService } from '@core';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '',
     canActivate: [SimpleGuardService],
