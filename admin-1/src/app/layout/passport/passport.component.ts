@@ -27,7 +27,8 @@ export class PassportComponent implements OnInit {
       console.log(resp);
       this.authService.setToken(JSON.stringify(resp));
       this.notification.success('登录提示', '登录成功，欢迎回来！');
-      this.router.navigate(['/home']);
+      const redirectUrl = this.authService.redirectUrl || '';
+      this.router.navigate([redirectUrl]);
     });
   }
   ngOnInit(): void {

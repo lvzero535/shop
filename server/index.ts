@@ -31,7 +31,7 @@ createConnection({
   host: "localhost",
   port: 3306,
   username: "root",
-  password: "123456",
+  password: "password",
   database: "shop",
   entities: [
     User, Category, SecondCategory, Product, Manager

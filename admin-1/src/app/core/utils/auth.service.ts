@@ -9,8 +9,15 @@ export class AuthService {
 
   private key;
   private url = '/login';
+  private RedirectUrl = '';
   constructor(private httpService: HttpService) { }
 
+  get redirectUrl() {
+    return this.RedirectUrl;
+  }
+  set redirectUrl(val: string) {
+    this.RedirectUrl = val;
+  }
   getAuthToken() {
     return localStorage.getItem(this.key || 'token');
   }
