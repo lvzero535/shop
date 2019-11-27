@@ -13,11 +13,16 @@ import zh from '@angular/common/locales/zh';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { CoreModule } from '@core/core.module';
+import { RoutesModule } from './routes/routes.module';
+import { LayoutModule } from './layout/layout.module';
+import { SharedModule } from '@shared';
 
 registerLocaleData(zh);
 export function I18nHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, `./assets/i18n/`, '.json');
 }
+
+
 
 @NgModule({
   declarations: [
@@ -33,10 +38,11 @@ export function I18nHttpLoaderFactory(http: HttpClient) {
       }
     }),
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
+    RoutesModule,
+    LayoutModule,
     IconsProviderModule,
-    NgZorroAntdModule,
-    FormsModule,
+    SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],

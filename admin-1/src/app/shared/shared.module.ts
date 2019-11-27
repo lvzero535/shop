@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { RouterModule } from '@angular/router';
 
 const COMPONENTS = [];
 const DIRECTIVES = [];
-const THIRDMODULES = [];
+const THIRDMODULES = [ NgZorroAntdModule, TranslateModule ];
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ const THIRDMODULES = [];
   ],
   exports: [
     CommonModule,
-    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
     ...THIRDMODULES,
     ...COMPONENTS,
     ...DIRECTIVES

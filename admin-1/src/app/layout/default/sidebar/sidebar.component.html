@@ -1,0 +1,39 @@
+<nz-sider class="menu-sidebar"
+            nzCollapsible
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+            <ul>
+                <li nz-menu-item nzSelected nzMatchRouter>
+                    <a routerLink="category">分类</a>
+                </li>
+                <li nz-menu-item nzMatchRouter>
+                    <a routerLink="product">产品</a>
+                </li>
+                <li nz-menu-item nzDisabled nzMatchRouter>
+                    <a>订单</a>
+                </li>
+                <li nz-menu-item nzDisabled nzMatchRouter>
+                    <a>用户</a>
+                </li>
+                <li nz-menu-item nzDisabled nzMatchRouter>
+                    <a>地址</a>
+                </li>
+            </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="系统管理" nzIcon="setting">
+            <ul>
+                <li nz-menu-item nzMatchRouter>
+                    <a routerLink="manager">管理员</a>
+                </li>
+                <li nz-menu-item nzMatchRouter>
+                    <!-- <a (click)="logout()" routerLink="/login">退出系统</a> -->
+                    <a (click)="logout()">退出系统</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nz-sider>
+
+  
