@@ -8,7 +8,6 @@ import { Manager } from 'src/app/interfaces/manager';
 export class AuthService {
 
   private key;
-  private url = '/login';
   private RedirectUrl = '';
   constructor(private httpService: HttpService) { }
 
@@ -29,7 +28,7 @@ export class AuthService {
     localStorage.removeItem(this.key);
   }
   login({username = '', password = ''}) {
-    return this.httpService.post<Manager>(this.url, {username, password});
+    return this.httpService.post<Manager>('/login', {username, password});
   }
   logout() {
     return this.httpService.post('/logout', {});

@@ -52,7 +52,7 @@ export class DefaultInterceptorService implements HttpInterceptor {
           break;
       case 401:
         this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
-        this.goTo('/login');
+        this.goTo('/passport');
         break;
       case 403:
       case 404:

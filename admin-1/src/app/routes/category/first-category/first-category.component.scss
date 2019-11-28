@@ -1,0 +1,25 @@
+.one-ctr {
+    .top-bar {
+      overflow: auto;
+      .refresh-btn {
+        vertical-align: top;
+      }
+    }
+    .input-width {
+      width: 200px;
+      display: inline-block;
+  
+    }
+    .tip {
+      font-weight: bold;
+      font-size: 18px;
+      .name-tip {
+        color: red;
+      }
+    }
+    .warning {
+      margin: 0;
+    }
+    
+  }
+  
