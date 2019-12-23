@@ -1,0 +1,55 @@
+<form nz-form [formGroup]="formGroup">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>用户名</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="验证中..." [nzErrorTip]="userErrorTpl">
+      <input nz-input formControlName="username" placeholder="请输入管理员用户名" />
+      <ng-template #userErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">
+         分类名称不能为空!
+        </ng-container>
+        <ng-container *ngIf="control.hasError('duplicated')">
+          分类名称已存在!
+        </ng-container>
+        <ng-container *ngIf="control.hasError('pattern')">
+          4到20个字段，字母数据中下划线，不能有特殊字符!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>密码</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="验证中..." [nzErrorTip]="passwordErrorTpl">
+      <input nz-input type="password" formControlName="password" placeholder="请输入管理员密码" />
+      <ng-template #passwordErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">
+          密码不能为空!
+        </ng-container>
+        <ng-container *ngIf="control.hasError('pattern')">
+          4到20个字母，字母数字中下划线，不能有特殊字符!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>邮箱</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="验证中..." [nzErrorTip]="emailErrorTpl">
+      <input nz-input type="email" formControlName="email" placeholder="请输入管理员邮箱" />
+      <ng-template #emailErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">
+          邮箱不能为空!
+        </ng-container>
+        <ng-container *ngIf="control.hasError('email')">
+          请输入正确邮箱!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>角色</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <nz-select formControlName="role" [nzDisabled]="isEditContent">
+        <nz-option *ngFor="let role of roles" [nzValue]="role" [nzLabel]="role"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+</form>

@@ -23,7 +23,9 @@
       "@core": [ "src/app/core/index" ],
       "@core/*": [ "src/app/core/*" ],
       "@shared": [ "src/app/shared/index" ],
-      "@shared/*": [ "src/app/shared/*" ]
+      "@shared/*": [ "src/app/shared/*" ],
+      "@interfaces": [ "src/app/interfaces/index" ],
+      "@interfaces/*": [ "src/app/interfaces/*" ]
     }
   },
   "angularCompilerOptions": {

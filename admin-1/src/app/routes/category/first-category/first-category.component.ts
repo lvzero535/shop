@@ -57,6 +57,7 @@ export class FirstCategoryComponent implements OnInit {
   }
 
   editBtnFn(category: Category) {
+    const that = this;
     const modal = this.nzModalService.create({
       nzTitle: '编辑一级分类',
       nzMaskClosable: false,
@@ -64,7 +65,12 @@ export class FirstCategoryComponent implements OnInit {
       nzComponentParams: {
         category
       },
-      nzFooter: null
+      nzOnOk(fmc) {
+        if (!fmc.validate()) {
+          return false;
+        }
+        that.editCategory(category.id, fmc.formGroup.value);
+      }
     });
   }
   deleteBtnFn(category: Category, content: TemplateRef<any>) {
@@ -90,5 +96,21 @@ export class FirstCategoryComponent implements OnInit {
       this.getOneCategories(this.params);
     });
   }
+  addCategory(body: Category) {
+    this.firstCategoryService.addCategory(body).subscribe((resp) => {
+      this.msgService.success(`创建一级分类 ${resp.name} 成功！`, {
+        nzDuration: 5000,
+      });
+      this.getOneCategories(this.params);
+    });
+  }
 
+  editCategory(id: string, body: Category) {
+    this.firstCategoryService.editCategory(id, body).subscribe((resp) => {
+      this.msgService.success(`编辑一级分类 ${resp.name} 成功！`, {
+        nzDuration: 5000,
+      });
+      this.getOneCategories(this.params);
+    });
+  }
 }

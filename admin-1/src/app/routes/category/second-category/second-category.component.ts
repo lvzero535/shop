@@ -101,14 +101,20 @@ export class SecondCategoryComponent implements OnInit {
   }
 
   editBtnFn(secondCategory: SecondCategory) {
-    const modal = this.nzModalService.create({
+    const that = this;
+    this.nzModalService.create({
       nzTitle: '编辑二级分类',
       nzMaskClosable: false,
       nzContent: SecondModalComponent,
       nzComponentParams: {
         secondCategory
       },
-      nzFooter: null
+      nzOnOk(smc) {
+        if (!smc.validate()) {
+          return false;
+        }
+        that.editTwoCategory(secondCategory.id, smc.formGroup.value);
+      }
     });
   }
 
@@ -136,5 +142,21 @@ export class SecondCategoryComponent implements OnInit {
       this.getSecondCategories(this.params);
     });
   }
+  addTwoCategory(body: SecondCategory) {
+    this.scService.addTwoCategory(body).subscribe((resp) => {
+      this.msgService.success(`创建二级分类 ${resp.name} 成功！`, {
+        nzDuration: 5000,
+      });
+      this.getSecondCategories(this.params);
+    });
+  }
 
+  editTwoCategory(id: string, body: SecondCategory) {
+    this.scService.editTwoCategory(id, body).subscribe((resp) => {
+      this.msgService.success(`编辑二级分类 ${resp.name} 成功！`, {
+        nzDuration: 5000,
+      });
+      this.getSecondCategories(this.params);
+    });
+  }
 }

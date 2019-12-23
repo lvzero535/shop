@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="formGroup" (ngSubmit)="submitForm(formGroup.value, category)">
+<form nz-form [formGroup]="formGroup">
     <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired>名称</nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="验证中..." [nzErrorTip]="userErrorTpl">
@@ -10,7 +10,7 @@
             <ng-container *ngIf="control.hasError('duplicated')">
             分类名称已存在!
             </ng-container>
-            <ng-container *ngIf="control.hasError('regex')">
+            <ng-container *ngIf="control.hasError('pattern')">
             4到20个字段，字母数据中下划线，不能有特殊字符!
             </ng-container>
         </ng-template>
@@ -22,10 +22,4 @@
         <nz-switch formControlName="hot" nzCheckedChildren="是" nzUnCheckedChildren="否"></nz-switch>
         </nz-form-control>
     </nz-form-item>
-    <!-- <nz-form-item>
-        <nz-form-control [nzOffset]="7" [nzSpan]="12">
-            <button nz-button nzType="primary" class="mr-10" [disabled]="!formGroup.valid">确定</button>
-            <button nz-button (click)="cancelFn($event)">取消</button>
-        </nz-form-control>
-    </nz-form-item> -->
 </form>

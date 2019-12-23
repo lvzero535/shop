@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SecondCategory } from 'src/app/interfaces/second_category';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Category } from 'src/app/interfaces/category';
-import { NzModalRef, NzMessageService } from 'ng-zorro-antd';
-import { EmitService } from '@core';
+import { validate } from '@core';
 import { FirstCategoryService } from '../../first-category.service';
 import { SecondCategoryService } from '../../second-category.service';
 import { of, Observable, Observer } from 'rxjs';
@@ -25,9 +24,6 @@ export class SecondModalComponent implements OnInit {
   };
   constructor(
     private fb: FormBuilder,
-    private modalRef: NzModalRef,
-    private msgService: NzMessageService,
-    private emitService: EmitService,
     private categorySerice: FirstCategoryService,
     private scService: SecondCategoryService
   ) { }
@@ -49,17 +45,10 @@ export class SecondModalComponent implements OnInit {
       });
     };
   }
-  nameValidator(control: FormControl): { [s: string]: boolean } {
-    const nameRex = /^[a-zA-Z0-9_-]{4,20}$/;
-    if (!nameRex.test(control.value)) {
-      return { error: true, regex: true };
-    }
-    return {};
-  }
   ngOnInit() {
     this.formGroup = this.fb.group({
       category_id: ['', [Validators.required]],
-      name: ['', [Validators.required, this.nameValidator], [this.nameValidatorAsync()]],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_-]{4,20}$')], [this.nameValidatorAsync()]],
       isPulished: [true]
     });
     if (this.secondCategory) {
@@ -79,17 +68,8 @@ export class SecondModalComponent implements OnInit {
     this.params.pageNum++;
     this.getCategories(this.params);
   }
-  submitForm(val, secondCategory: SecondCategory) {
-    if ( secondCategory ) {
-      this.editTwoCategory(secondCategory.id, val);
-    } else {
-      this.addTwoCategory(val);
-    }
-  }
-
-  cancelFn(evt) {
-    evt.preventDefault();
-    this.modalRef.close();
+  validate() {
+    return validate(this.formGroup);
   }
   getCategories(param, name?: string) {
     this.categorySerice.getOneCategory(param, name).subscribe((resp) => {
@@ -97,25 +77,6 @@ export class SecondModalComponent implements OnInit {
       if (resp.total > 0) {
         this.selectedOneId = this.selectedOneId || this.oneCategories[0].id;
       }
-    });
-  }
-  private addTwoCategory(body: SecondCategory) {
-    this.scService.addTwoCategory(body).subscribe((resp) => {
-      this.msgService.success(`创建二级分类 ${resp.name} 成功！`, {
-        nzDuration: 5000,
-      });
-      this.emitService.emitEvent.emit('refreshTwoCategoryData');
-      this.modalRef.close();
-    });
-  }
-
-  private editTwoCategory(id: string, body: SecondCategory) {
-    this.scService.editTwoCategory(id, body).subscribe((resp) => {
-      this.msgService.success(`编辑二级分类 ${resp.name} 成功！`, {
-        nzDuration: 5000,
-      });
-      this.emitService.emitEvent.emit('refreshTwoCategoryData');
-      this.modalRef.close();
     });
   }
 
