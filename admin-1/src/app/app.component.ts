@@ -13,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   styles: ['.router-container { height: 100%; }']
 })
 export class AppComponent {
-  isCollapsed = false;
+  public isCollapsed = false;
 
   constructor(translate: TranslateService) {
     translate.setDefaultLang('zh-CN');
