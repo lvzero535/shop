@@ -6,6 +6,7 @@ import { SidebarComponent } from './default/sidebar/sidebar.component';
 import { PassportComponent } from './passport/passport.component';
 import { SettingComponent } from './default/header/components/setting.component';
 import { UserComponent } from './default/header/components/user.component';
+import { I18nComponent } from './default/header/components/i18n.component';
 
 
 
@@ -16,7 +17,8 @@ import { UserComponent } from './default/header/components/user.component';
     SidebarComponent,
     PassportComponent,
     SettingComponent,
-    UserComponent
+    UserComponent,
+    I18nComponent
   ],
   imports: [
     SharedModule

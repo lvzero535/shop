@@ -1,12 +1,14 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { throwIfAlreadyLoaded } from './module-import.guard';
 import { HttpInterceptorsProviders } from './net/interceptors';
+import { I18nService } from './services/i18n.service';
 
 
 
 @NgModule({
   providers: [
-    HttpInterceptorsProviders
+    HttpInterceptorsProviders,
+    // I18nService
   ]
 })
 export class CoreModule {

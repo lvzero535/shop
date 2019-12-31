@@ -70,7 +70,7 @@ export class DefaultInterceptorService implements HttpInterceptor {
   }
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let url = req.url;
-    if (!url.startsWith('https://') && !url.startsWith('http://') && !url.includes('i18n')) {
+    if (!url.startsWith('https://') && !url.startsWith('http://') && !url.includes('assets')) {
       url = environment.URL + url;
     }
     const newReq = req.clone({

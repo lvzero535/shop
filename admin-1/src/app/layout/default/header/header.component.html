@@ -1,6 +1,6 @@
 <div class="default_header">
     <div class="default_header-logo" [style.width]="!isCollapsed ? '200px' : '80px'">
-        <a *ngIf="!isCollapsed">商城管理系统</a>
+        <a *ngIf="!isCollapsed">{{'APP_NAME' | translate}}</a>
         <a *ngIf="isCollapsed">商城</a>
     </div>
     <div class="default_header-wrap">

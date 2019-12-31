@@ -1,4 +1,7 @@
 import { OnInit, Component } from '@angular/core';
+import { AuthService } from '@core';
+import { NzModalService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'header-user',
@@ -30,9 +33,19 @@ import { OnInit, Component } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-    constructor() {}
+    constructor(private authSrv: AuthService, private router: Router, private nzModalSrv: NzModalService) {}
     ngOnInit() {}
     logout() {
-        alert('aa');
+        const that = this;
+        this.nzModalSrv.confirm({
+            nzTitle: '退出登录',
+            nzContent: '确认要退出登录吗？',
+            nzOnOk() {
+                that.authSrv.logout().subscribe(() => {
+                    that.authSrv.clearToken();
+                    that.router.navigateByUrl('/passport');
+                });
+            }
+        });
     }
 }

@@ -8,7 +8,7 @@ import { NzNotificationService } from 'ng-zorro-antd';
 })
 export class SimpleGuardService implements CanActivate, CanActivateChild {
 
-  private blackList = ['/home/manager'];
+  private blackList = ['/manager'];
 
   constructor(private authService: AuthService, private router: Router, private notification: NzNotificationService) {}
 
