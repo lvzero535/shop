@@ -47,7 +47,7 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="7" nzRequired>角色</nz-form-label>
     <nz-form-control [nzSpan]="12" nzHasFeedback>
-      <nz-select formControlName="role" [nzDisabled]="isEditContent">
+      <nz-select formControlName="role">
         <nz-option *ngFor="let role of roles" [nzValue]="role" [nzLabel]="role"></nz-option>
       </nz-select>
     </nz-form-control>

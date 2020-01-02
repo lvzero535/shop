@@ -25,7 +25,7 @@ export class CreateComponent implements OnInit {
     if (this.manager) {
       this.formGroup.setValue({
         username: this.manager.username,
-        password: this.manager.password,
+        password: '',
         email: this.manager.email,
         role: this.manager.role
       });

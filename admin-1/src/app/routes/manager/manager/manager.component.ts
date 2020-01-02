@@ -40,6 +40,8 @@ export class ManagerComponent implements OnInit {
   createBtn() {
     this.openModal();
   }
+  pageChange() {
+  }
   editBtn(manager: Manager) {
     this.openModal('编辑管理员', manager);
   }
