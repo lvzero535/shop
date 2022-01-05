@@ -15,9 +15,7 @@ export default class Manager {
   })
   username: string;
 
-  @Column({
-    length: 40
-  })
+  @Column()
   password: string;
 
   @Column({

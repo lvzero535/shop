@@ -22,6 +22,7 @@ export default class ManagerController {
   
   public static async addManager(ctx: BaseContext) {
     const manager: Manager = ctx.request.body;
+    manager.password = Util.crypto(manager.password);
     console.log(ctx.request.body);
     ctx.status = 200; 
     ctx.body = await ManagerService.addAndUpdateManager(manager);
@@ -33,8 +34,10 @@ export default class ManagerController {
       ctx.status = 400;
       ctx.body = 'user is not exists!'
     } else {
+      const manager: Manager = ctx.request.body;
+      manager.password = Util.crypto(manager.password);
       ctx.status = 200; 
-      ctx.body = await ManagerService.addAndUpdateManager(Object.assign(findManager, ctx.request.body));
+      ctx.body = await ManagerService.addAndUpdateManager(Object.assign(findManager, manager));
     }
   }
 
@@ -51,7 +54,7 @@ export default class ManagerController {
 
   public static async login(ctx: BaseContext) {
     const {username, password} = ctx.request.body;
-    const findManager = await ManagerService.login(username, password);
+    const findManager = await ManagerService.login(username, Util.crypto(password));
     if(!findManager) {
       ctx.status = 400;
       ctx.body = {

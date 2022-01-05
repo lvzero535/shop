@@ -6,6 +6,7 @@ export default class ManagerService {
   public static async getManagers({offset = 0, limit = 5, username = ''}) {
     return getRepository(Manager)
             .createQueryBuilder('manager')
+            .select(['manager.id', 'manager.username', 'manager.email', 'manager.createdDate', 'manager.role'])
             .where('manager.username like :name', {name: `%${username}%`})
             .skip(offset).take(limit).getManyAndCount();
   }

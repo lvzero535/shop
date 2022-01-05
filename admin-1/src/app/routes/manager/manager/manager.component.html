@@ -33,7 +33,7 @@
     <thead>
       <tr>
         <th nzWidth="15%">用户名</th>
-        <th nzWidth="15%">密码</th>
+        <!-- <th nzWidth="15%">密码</th> -->
         <th nzWidth="10%">角色</th>
         <th nzWidth="20%">邮箱</th>
         <th nzWidth="25%">创建时间</th>
@@ -43,7 +43,7 @@
     <tbody>
       <tr *ngFor="let data of basicTable.data">
         <td>{{ data.username }}</td>
-        <td>{{ data.password }}</td>
+        <!-- <td nzBreakWord>{{ data.password }}</td> -->
         <td>{{ data.role }}</td>
         <td>{{ data.email }}</td>
         <td>{{ data.createdDate }}</td>
