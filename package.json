@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --watch ./server -e ts --exec ts-node ./server/index.ts",
-    "dev": "nodemon ./server -e ts --exec ts-node --inspect ./server/index.ts"
+    "dev": "nodemon ./server -e ts --exec ts-node --inspect ./server/index.ts",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -32,9 +33,12 @@
     "typeorm": "^0.2.18"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
     "@types/koa": "^2.0.48",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.0.42",
+    "husky": "^7.0.0",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
