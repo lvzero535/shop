@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "node prepare.js",
     "start": "nodemon --watch ./server -e ts --exec ts-node ./server/index.ts",
     "dev": "nodemon ./server -e ts --exec ts-node --inspect ./server/index.ts",
     "prepare": "husky install"
