@@ -9,10 +9,10 @@ module.exports = {
       rules: {
         'fix-td-rule': ({subject, type}) => {
           console.log(subject, type)
-          const hasTD = type === 'fix' && !/\[\d\]/.test(subject) 
+          const hasTD = type === 'fix' && !/\[\d{8}\]/.test(subject) 
           return [
             !hasTD,
-            `Your subject should contain ${type}, ${hasTD} message`,
+            `Your subject should contain td number in type of fix`,
           ];
         },
       },
